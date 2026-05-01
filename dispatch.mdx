@@ -1,0 +1,100 @@
+---
+title: "Dispatch"
+description: "How traded flexibility is converted into instructions to Units and Assets, and how delivery happens at the physical Resource level."
+---
+
+**Dispatch** is the operational delivery of flexibility against trades. It is the moment when commercial agreements become physical action — Resources actually charge, discharge, ramp up, ramp down, or hold a state.
+
+The End-to-End Process FMR distinguishes two levels of dispatch instruction: **D.3 Dispatch Units** (instruction to the Unit) and **D.4 Dispatch Assets** (operational commands to the underlying Assets). Below these, the Asset's energy management system propagates instructions to the constituent Resources.
+
+## What dispatch involves
+
+```mermaid
+flowchart LR
+    Trade[Trade Outcome] --> Plan[Dispatch Plan]
+    Plan --> D3[D.3 Dispatch Units]
+    D3 --> D4[D.4 Dispatch Assets]
+    D4 --> Resource[Resource Responds]
+    Resource --> Hold[Asset Holds State]
+    Hold --> D5[D.5 Cease Units]
+    D5 --> D6[D.6 Cease Assets]
+    D6 --> Return[Resources Return to Baseline]
+```
+
+For each trade, the FSP must:
+
+- Convert the trade outcome into a dispatch plan for specific Units.
+- Receive (or generate) the Unit-level dispatch signal at the appropriate time.
+- Propagate to the constituent Assets and through them to the underlying Resources.
+- Hold the dispatch for the contracted duration.
+- Cease the dispatch when instructed (or when the time window ends).
+- Verify that delivery happened.
+
+## Who issues the signal
+
+Depending on the Product and Sub-Market, the dispatch signal can come from:
+
+- **The System Operator directly.** Most DNO products and many NESO ancillary services work this way.
+- **The market platform.** For some platform-mediated products.
+- **Automatic triggers.** Frequency response products dispatch automatically based on grid frequency.
+- **The FSP itself.** Where the trade is for a fixed delivery window agreed in advance.
+
+The signalling channel varies — APIs into FSP systems, instructions to platform integrations, direct telemetry into Asset control systems.
+
+## Unit vs. Asset dispatch
+
+The standard activity catalogue distinguishes between:
+
+- **D.3 Dispatch Units** — instruction issued at Unit level. The Unit is the market-facing entity.
+- **D.4 Dispatch Assets** — operational commands to the Assets within the Unit.
+
+Most products dispatch at Unit level, with the FSP responsible for distributing the dispatch across Assets. Some products dispatch at Asset level directly. The choice affects which activities appear in the Sub-Market's activity catalogue.
+
+Below the Asset, dispatch propagates to the underlying Resources via the Asset's energy management system. This propagation is generally not part of the standard activity catalogue — it is the FSP's internal operational concern.
+
+## Modes of activation
+
+A dispatch event can have several modes of activation:
+
+- **Scheduled.** Fixed delivery window agreed at trade time.
+- **As-called (operational).** Dispatched on short notice in response to actual system conditions.
+- **Continuous.** The Unit is held in a responsive state and dispatches itself in response to grid signals (typical of Response products like Dynamic Containment).
+
+A single Asset may participate in multiple Units, each with different activation modes — coordinating dispatch across these modes is one of the operational realities of value-stacking.
+
+## Maintaining availability and visibility
+
+Two activities support dispatch readiness:
+
+**D.1 Maintain Unit Availability.** Ensures Units remain operationally ready, including the exchange of data required for availability schedules — for example, notice of planned unavailability.
+
+**D.2 Provide Operational Visibility.** Sharing applicable State of Energy data and/or metering data with System Operators during the delivery period. This is real-time data exchange supporting the operator's situational awareness.
+
+Whether a Sub-Market uses these activities depends on the Product. Some Products require continuous availability tracking; others operate purely on a per-dispatch basis.
+
+## Cease
+
+Dispatch ends with a cease activity. The End-to-End Process FMR distinguishes:
+
+- **D.5 Cease Units.** Termination at the Unit level. Can be either:
+  - **Pre-execution.** Cancelling a scheduled dispatch before it starts (e.g. a Disarm Reason Code on a Balancing Mechanism Unit, or a Cancel Dispatch instruction).
+  - **In-execution.** Cutting short a dispatch that has already started.
+- **D.6 Cease Assets.** Sending the corresponding operational command to stop service delivery from Assets, propagating to underlying Resources.
+
+The two-level (Unit / Asset) cease structure mirrors the dispatch structure.
+
+## Delivery and metering
+
+At the moment of dispatch, two things happen in parallel:
+
+1. The Resources physically respond — generating, consuming, or shifting load as instructed.
+2. The Metering System begins recording the response in a form usable for verification.
+
+The Metering System used depends on what was registered in Q.6 (Asset pre-qualification) and Q.11 (Baseline Method registration). It must be the _approved_ Metering System per the End-to-End Process FMR's Asset definition.
+
+## Related pages
+
+- [Verification and Settlement](/mechanics/verification-and-settlement) — what happens after the dispatch.
+- [Units](/assets/units) — the dispatch-addressable level.
+- [Assets](/assets/assets) — what's bundled at each connection point.
+- [Resources](/assets/resources) — the physical layer that does the work.

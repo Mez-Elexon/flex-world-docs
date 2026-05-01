@@ -17,21 +17,51 @@
             "group": "Background",
             "pages": [
               "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "sub-market-overview",
+              "systems-landscape",
+              "sources",
+              "reference-models"
             ]
           },
           {
             "group": "Glossary",
             "pages": [
-              "untitled-page"
+              "glossary"
+            ]
+          },
+          {
+            "group": "Actors and Roles",
+            "pages": [
+              "quickstart",
+              "service-providers",
+              "system-operators"
+            ]
+          },
+          {
+            "group": "Assets",
+            "pages": [
+              "overview",
+              "assets",
+              "registration-and-qualification",
+              "resources",
+              "units"
+            ]
+          },
+          {
+            "group": "Lifecycle",
+            "pages": [
+              "overview-1",
+              "phases",
+              "activity-dependencies"
+            ]
+          },
+          {
+            "group": "Mechanics",
+            "pages": [
+              "untitled-page",
+              "needs-and-products",
+              "dispatch",
+              "verification-and-settlement"
             ]
           }
         ]

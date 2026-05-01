@@ -1,0 +1,114 @@
+---
+title: "Systems Landscape"
+description: "The platforms and software systems that operate the GB Flexibility Market today, mapped by System Operator and function. This is a working view that will evolve as FMAR and the Market Facilitator's coordination work progresses."
+---
+
+The flexibility market is operated through a constellation of digital platforms and software systems. This page captures the current landscape as understood by the Market Facilitator. It is **work in progress** — the Market Facilitator is actively gathering this information through engagement with System Operators and FSPs, and gaps and ambiguities remain.
+
+## Why this matters
+
+Understanding which platforms operate which functions matters because:
+
+- **FSPs integrate per-platform.** An FSP wanting to participate across multiple System Operators' Sub-Markets needs to understand how many distinct integrations that requires.
+- **The same function uses different software in different places.** Qualification on NESO uses one platform; on each DNO it uses something different.
+- **FMAR's scope can be understood in terms of which functions it absorbs.** The "Will be FMAR Upstream Registration System?" column in the underlying data captures exactly this.
+- **Coordination opportunities live in the variation.** Where the same function uses many platforms across operators, that's where standardisation has the most leverage.
+
+## System Operator side — by function
+
+The functions System Operators perform are:
+
+- **Qualification.** Where FSPs register and pre-qualify FSPs, Assets, and Units.
+- **Grid system (connectivity and power flow model).** The network model used for grid pre-qualification and constraint identification.
+- **Additional metadata system.** For core asset and entity identity.
+- **Competition platform.** The bidding and clearing system.
+- **Scheduling (incl. Unit dispatch).** Sometimes called DERMs.
+- **Verification.** Performance assessment, sometimes part of the same DERMs system.
+- **Settlement.** Invoicing and payment.
+
+### NESO
+
+NESO operates several distinct sets of systems depending on the Sub-Market type:
+
+| Sub-Market context | Qualification | Competition | Dispatch | Verification | Settlement |
+| --- | --- | --- | --- | --- | --- |
+| **National (most ancillary services)** | Single Markets Platform | Enduring Auction Capability (EAC, by N-SIDE) | Open Balancing Platform (OBP) | OBP | STAR system / BSC systems |
+| **National (DFS)** | Single Markets Platform | Single Markets Platform | OBP | DFS Platform | DFS Platform |
+| **National (Balancing Mechanism)** | Participant Management Platform | EDL for BM (possibly via Quorum) | EDT for BM (possibly via Quorum) | BM systems | BSC Systems |
+
+Additional NESO platform context:
+
+- **BM forecasting systems and Hitachi Energy ADMS** support grid analysis.
+- **SCADA system** for operational visibility.
+- The **future direction** noted in the working view is towards an MF dispatch API for non-BM Units (nBMs).
+
+### DNO platforms
+
+Each DNO uses a distinct set of platforms. The current picture:
+
+| DNO | Qualification platform | Competition platform | Dispatch | Verification | Grid system |
+| --- | --- | --- | --- | --- | --- |
+| **NGED** | Market Gateway, Piclo Flex, Electron | Market Gateway, Electron | Flexible Power | Flexible Power | PowerFactory (DPS system) |
+| **NPg** | Piclo Flex (by Piclo) | Piclo Flex | Piclo Flex | Piclo Flex | ANM system |
+| **SPEN** | Electron Connect | Electron Connect | Flexible Power | Electron Connect | ANM system |
+| **SPENW** | Electron Connect | Electron Connect | Electron Connect | Electron Connect | ANM system |
+| **SSEN** | Electron Connect | Electron Connect | Electron Connect | Electron Connect | ANM system |
+| **UKPN** | Epex Spot | Local Flex (by Epex) | Smarter Grid Solutions (SGS) | Smarter Grid Solutions (SGS) | ANM system (GE Vernova); Achilles Registration |
+
+Settlement across DNOs typically routes through the platform's own settlement function plus BSC systems.
+
+### Other system operators
+
+| Context | Qualification / Procurement | Notes |
+| --- | --- | --- |
+| **DESNZ — Capacity Market** | EMRS solution | Out of MF scope. CMNs issued via website, CM Portal via CSV. |
+| **National (Wholesale — ID/DA)** | Participant Management Platform, EPEX, N2EX | National pricing; self-dispatch. |
+
+## FSP side — interface points
+
+The systems interface working view also identifies the interfaces FSPs must work through. These cluster around several functions:
+
+- **Register Baseline Method interface.**
+- **Create Unit interface.**
+- **Baseline data interface.**
+- **Dispatch Unit interface.**
+- **Dispatch Asset interface.**
+- **Bid interface.**
+- **Submit Metering Data interface.**
+- **Invoicing, disputes, and Payments interface.**
+
+For a NESO Single Markets Platform FSP, for example:
+
+- Create Unit — UI and API via NESO Single Markets Platform.
+- Dispatch Unit — EDT (e.g. via Quorum), WAAPI via NESO, or nBM API via NESO. Future: MF dispatch API.
+- Bid — EDT via Quorum, WAAPI via NESO, or bid submission API via EAC.
+- Metering data — SCADA with NESO (BMUs), nBM API via NESO.
+
+For a DNO Aggregator working through Market Gateway or Piclo Flex, most interfaces are unified through the chosen platform's UI and API.
+
+The FSP-side picture is incomplete — different DNO platforms expose different interface combinations, and the Market Facilitator's working view flags many cells as TBD.
+
+## Where this is heading
+
+Several Market Facilitator workstreams have implications for the systems landscape:
+
+- **FMAR (Flexibility Market Asset Registration).** Will absorb the Qualification function across many of these platforms, replacing per-operator Qualification systems with a common registration system of record.
+- **MF dispatch API for nBMs.** Mentioned in NESO context as a future direction — would standardise dispatch routing for non-BM Units.
+- **Sub-Market rationalisation.** As the Market Facilitator works to rationalise Sub-Markets, the per-Sub-Market system variation is expected to reduce.
+
+## Caveats on this view
+
+This page is a working snapshot. Specific caveats:
+
+- **Information is partial.** Several cells in the underlying data are explicitly marked TBD or are gaps the Market Facilitator is still filling.
+- **Vendor identifiers are approximate.** "ANM system by xxx" appears multiple times because the specific vendor isn't recorded in the working data.
+- **Platform names change.** Both software and the names by which it's known evolve quickly.
+- **The April 2026 sprint context.** The underlying data is from a sprint task to "identify existing integration between service providers and SOs" — it's a working artefact, not a published reference.
+
+The page will be updated as the Market Facilitator's view firms up.
+
+## Related pages
+
+- [System Operators](/actors/system-operators) — the parties operating these systems.
+- [Service Providers](/actors/service-providers) — the parties integrating with them.
+- [Sub-Market Catalogue](/reference/sub-market-catalogue) — what each platform supports.
