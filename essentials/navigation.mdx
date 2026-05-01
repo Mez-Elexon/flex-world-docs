@@ -1,87 +1,60 @@
 ---
-title: 'Navigation'
-description: 'The navigation field in docs.json defines the pages that go in the navigation menu'
-icon: 'map'
+title: "Lifecycle: Overview"
+description: "The end-to-end journey of a flexible asset through the GB flexibility market — six phases from need identification to settlement."
 ---
 
-The navigation menu is the list of links on every website.
+The flexibility market lifecycle is the sequence an asset moves through from before any trade exists to after the money has been paid. Six phases, in order, each with its own actors, activities, and time horizons.
 
-You will likely update `docs.json` every time you add a new page. Pages do not show up automatically.
+## The six phases
 
-## Navigation syntax
-
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
-
-<CodeGroup>
-
-```json Regular Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": ["quickstart"]
-        }
-      ]
-    }
-  ]
-}
+```mermaid
+flowchart LR
+    E[Exploration] --> Q[Qualification]
+    Q --> C[Competition]
+    C --> D[Scheduling<br/>and Dispatch]
+    D --> V[Verification]
+    V --> S[Settlement]
 ```
 
-```json Nested Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": [
-            "quickstart",
-            {
-              "group": "Nested Reference Pages",
-              "pages": ["nested-reference-page"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+| Phase | Purpose | Time horizon |
+| --- | --- | --- |
+| **Exploration** | Identify needs; define products | Months to years |
+| **Qualification** | Register and pre-qualify | Weeks to months |
+| **Competition** | Buy/sell signalling and clearing | Hours to months |
+| **Scheduling and Dispatch** | Operational delivery | Real-time |
+| **Verification** | Performance assessment | Days to weeks |
+| **Settlement** | Invoice and payment | Weeks |
 
-</CodeGroup>
+The phases overlap in calendar time. While one trade is being settled, another is being dispatched, a third is being cleared, and a fourth's product is still being explored. From a single asset's perspective, the phases happen sequentially; from the market's perspective, all phases are happening at once.
 
-## Folders
+## Sub-pages
 
-Simply put your MDX files in folders and update the paths in `docs.json`.
+<CardGroup cols={2}>
+  <Card title="Phases" href="/lifecycle/phases">
+    Detail on each of the six phases, what happens, and who does what.
+  </Card>
 
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+  <Card title="Activity Dependencies" href="/lifecycle/activity-dependencies">
+    The 29 standard activities and how they connect across the lifecycle.
+  </Card>
 
-<Warning>
+  <Card title="Sub-Market Variation" href="/lifecycle/sub-market-variation">
+    How the lifecycle varies between sub-markets, and why most variation is smaller than it appears.
+  </Card>
+</CardGroup>
 
-You cannot use `api` for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level `api` folder for internal server calls. A folder name such as `api-reference` would be accepted.
+## Why the lifecycle view matters
 
-</Warning>
+The lifecycle view complements the [Mechanics](/mechanics/overview) view. Mechanics asks "what is the chain of buying and selling?"; lifecycle asks "what does an asset go through?". Both views describe the same reality from different angles.
 
-```json Navigation With Folder
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Group Name",
-          "pages": ["your-folder/your-page"]
-        }
-      ]
-    }
-  ]
-}
-```
+The lifecycle view is particularly useful for:
 
-## Hidden pages
+- **Onboarding.** Understanding what an FSP needs to do to bring a new asset into the market.
+- **Programme planning.** Knowing where in the lifecycle a proposed change has its impact.
+- **Cross-market analysis.** Identifying where the lifecycle is similar or different across sub-markets.
+- **Coordination work.** Programmes like FMAR specifically target lifecycle stages where coordination would have the most leverage (notably Qualification).
 
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+## Related pages
+
+- [Market Mechanics](/mechanics/overview) — the same activity seen from the market's perspective.
+- [Registration and Qualification](/assets/registration-and-qualification) — the Qualification phase in operational detail.

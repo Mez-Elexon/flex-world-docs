@@ -1,95 +1,60 @@
 ---
-title: 'Development'
-description: 'Preview changes locally to update your docs'
-icon: 'terminal'
+title: "Market Mechanics: Overview"
+description: "How needs become products, how products are bought and sold, how delivery happens, and how it all gets settled."
 ---
 
-<Info>
-  **Prerequisites**:
-  - Node.js version 19 or higher
-  - A docs repository with a `docs.json` file
-</Info>
+The mechanics of the flexibility market follow a sequence: a system need is identified, a product is defined to meet it, a sub-market is established to procure that product, FSPs compete to win trades, those trades are dispatched, and delivery is verified and settled.
 
-Follow these steps to install and run Mintlify on your operating system.
+## The mechanics chain
 
-<Steps>
-<Step title="Install the Mintlify CLI">
-
-```bash
-npm i -g mint
-```
-</Step>
-
-<Step title="Preview locally">
-
-Navigate to your docs directory where your `docs.json` file is located, and run the following command:
-
-```bash
-mint dev
+```mermaid
+flowchart LR
+    Need[System Need] --> Product
+    Product --> SubMkt[Sub-Market]
+    SubMkt --> Comp[Competition<br/>& Clearing]
+    Comp --> Dispatch
+    Dispatch --> Verify[Verification]
+    Verify --> Settle[Settlement]
 ```
 
-A local preview of your documentation will be available at `http://localhost:3000`.
+Each link in the chain is a separate concern with its own governance, its own actors, and often its own systems.
 
-</Step>
-</Steps>
+## What sits at each link
 
-## Custom ports
+<CardGroup cols={2}>
+  <Card title="Needs and Products" href="/mechanics/needs-and-products">
+    How a system operator turns a network or system requirement into a procurable product.
+  </Card>
 
-By default, Mintlify uses port 3000. You can customize the port Mintlify runs on by using the `--port` flag. For example, to run Mintlify on port 3333, use this command:
+  <Card title="Sub-Markets" href="/mechanics/sub-markets">
+    The specific procurement vehicles by which products are bought, parameterised by duration, location, and other dimensions.
+  </Card>
 
-```bash
-mint dev --port 3333
-```
+  <Card title="Competition and Clearing" href="/mechanics/competition-and-clearing">
+    Buy and sell signalling, bid submission, market clearing, and trade allocation.
+  </Card>
 
-If you attempt to run Mintlify on a port that's already in use, it will use the next available port:
+  <Card title="Dispatch" href="/mechanics/dispatch">
+    How traded flexibility is converted into instructions to assets and physical delivery.
+  </Card>
+</CardGroup>
 
-```md
-Port 3000 is already in use. Trying 3001 instead.
-```
+The chain ends with [Verification and Settlement](/mechanics/verification-and-settlement) — the assessment of whether what was contracted was delivered, and the financial reconciliation that follows.
 
-## Mintlify versions
+## Why the chain matters
 
-Please note that each CLI release is associated with a specific version of Mintlify. If your local preview does not align with the production version, please update the CLI:
+The chain is sequential by design — each link constrains what's possible at the next one. A product that isn't well-specified leads to ambiguous bids. A sub-market that's poorly designed leads to thin liquidity. A clearing mechanism that doesn't reflect physical realities leads to undeliverable trades.
 
-```bash
-npm mint update
-```
+Most market design improvements work by adjusting one link without breaking its connection to the others. This is harder than it looks, because the chain is also where most of the market's heterogeneity sits — different system operators run the chain differently, with different timings, different rules, and different terminology for the same underlying steps.
 
-## Validating links
+## Heterogeneity is the rule
 
-The CLI can assist with validating links in your documentation. To identify any broken links, use the following command:
+Across the GB flex market there are dozens of variations of this chain in active operation. NESO's Dynamic Containment runs the chain on a sub-second timescale; a DNO's long-term constraint management contract runs it across years. Both are recognisable as the same mechanics, but the implementations differ at every link.
 
-```bash
-mint broken-links
-```
+This heterogeneity is a feature, not a bug — different system needs require different procurement approaches. But it is also the reason FSPs invest heavily in understanding multiple flavours of the chain, and the reason coordination programmes like FMAR exist.
 
-## Deployment
+## Related pages
 
-If the deployment is successful, you should see the following:
-
-<Frame>
-  <img src="/images/checks-passed.png" alt="Screenshot of a deployment confirmation message that says All checks have passed." style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Code formatting
-
-We suggest using extensions on your IDE to recognize and format MDX. If you're a VSCode user, consider the [MDX VSCode extension](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx) for syntax highlighting, and [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for code formatting.
-
-## Troubleshooting
-
-<AccordionGroup>
-  <Accordion title='Error: Could not load the "sharp" module using the darwin-arm64 runtime'>
-
-    This may be due to an outdated version of node. Try the following:
-    1. Remove the currently-installed version of the CLI: `npm remove -g mint`
-    2. Upgrade to Node v19 or higher.
-    3. Reinstall the CLI: `npm i -g mint`
-  </Accordion>
-
-  <Accordion title="Issue: Encountering an unknown error">
-  
-    Solution: Go to the root of your device and delete the `~/.mintlify` folder. Then run `mint dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in the latest CLI version? Check out the [CLI changelog](https://www.npmjs.com/package/mintlify?activeTab=versions).
+- [Lifecycle: Overview](/lifecycle/overview) — the same mechanics seen from the perspective of a single asset's journey.
+- [System Operators](/actors/system-operators) — the parties that run the chain on the buy side.
+- [Service Providers](/actors/service-providers) — the parties that engage with it on the sell side.

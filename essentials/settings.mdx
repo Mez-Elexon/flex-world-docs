@@ -1,174 +1,70 @@
 ---
-title: 'Configuration'
-description: 'Customize your site with the `docs.json` file'
-icon: 'gear'
+title: "Assets: Overview"
+description: "What flexibility is, structurally — from portfolio groupings down through individual technical components."
 ---
 
-Every Mintlify site is configured through a `docs.json` file in your project root. Changes take effect immediately in local preview.
+In the GB flexibility market, "asset" is a slippery word. It means different things at different levels of detail, and understanding the levels is the foundation for understanding everything from registration to settlement.
 
-## Identity
+## The asset hierarchy
 
-Set the name, theme, and visual identity of your site.
+```mermaid
+flowchart TB
+    SPG["Service Point Group<br/>(portfolio level)"]
+    AP["Accounting Point<br/>(settlement boundary)"]
+    Asset["Asset<br/>(commercial registration)"]
+    CU["Controllable Unit<br/>(dispatch addressable)"]
+    TR["Technical Resource<br/>(component level)"]
 
-```json docs.json
-{
-  "name": "Acme Docs",
-  "theme": "mint",
-  "favicon": "/favicon.svg",
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  }
-}
+    SPG -->|1..*| AP
+    AP -->|1..*| Asset
+    Asset -->|1..*| CU
+    CU -->|1..*| TR
 ```
 
-<ResponseField name="name" type="string" required>
-  Your project name. Appears in the browser tab title and site metadata.
-</ResponseField>
+This four-level hierarchy is aligned with the Norwegian Flexibility Information System (FIS / EuroFlex) — the most mature international reference for flexibility data modelling. GB-specific terminology overlays on this structure but the levels themselves are stable.
 
-<ResponseField name="theme" type="string">
-  The visual theme. Options: `mint`, `maple`, `willow`, `sequoia`, `prism`.
-</ResponseField>
+## What each level is for
 
-<ResponseField name="favicon" type="string">
-  Path to your favicon. SVG recommended for crisp rendering at all sizes.
-</ResponseField>
+- [**Service Point Group (SPG)**](/assets/hierarchy) — portfolio-level grouping for collective participation and reporting.
+- [**Accounting Point (AP)**](/assets/accounting-points) — the settlement boundary; where energy is metered and money flows.
+- **Asset** — the commercial registration; what an FSP signs up to operate in a market.
+- [**Controllable Unit (CU)**](/assets/controllable-units) — the unit that receives dispatch instructions and reports performance.
+- **Technical Resource (TR)** — the lowest-level technical component (an individual inverter, a single battery cell rack).
 
-<ResponseField name="logo" type="object">
-  <Expandable title="Logo">
-    <ResponseField name="light" type="string">Logo shown in light mode.</ResponseField>
-    <ResponseField name="dark" type="string">Logo shown in dark mode.</ResponseField>
-    <ResponseField name="href" type="string" default="/">URL the logo links to.</ResponseField>
-  </Expandable>
-</ResponseField>
+The hierarchy isn't strict — not every situation involves all five levels. A simple domestic battery might collapse to one of each, while a complex industrial site might have a deeply nested structure.
 
-## Colors
+## Why the levels are kept distinct
 
-```json docs.json
-{
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  }
-}
-```
+Each level has independent characteristics that justify its existence:
 
-<ResponseField name="colors.primary" type="string" required>
-  Primary brand color. Used for highlights, active states, and accents in light mode.
-</ResponseField>
+- **Independent lifecycles.** APs change ownership and configuration on a different timescale than the Assets behind them. CUs can be added or removed without changing the Asset's identity.
+- **Independent governance.** FSPs have authority over Asset registration and capability declarations; network operators have authority over AP-level data; OEMs may govern TR-level firmware.
+- **Independent identity.** Each level needs to be uniquely identifiable for its own purposes — APs for settlement, CUs for dispatch, Assets for commercial accounting.
 
-<ResponseField name="colors.light" type="string">
-  Primary color for dark mode.
-</ResponseField>
+Conflating levels (treating an AP as just an attribute of an Asset, for example) tends to break down at any complex site or any change of state. The cost of structural clarity is upfront modelling work; the cost of conflation is operational pain that lasts forever.
 
-<ResponseField name="colors.dark" type="string">
-  Used for buttons and important interactive elements.
-</ResponseField>
+## Sub-pages
 
-<ResponseField name="colors.background" type="object">
-  Override the default page background color.
-  <Expandable title="Background">
-    <ResponseField name="light" type="string">Background hex color in light mode.</ResponseField>
-    <ResponseField name="dark" type="string">Background hex color in dark mode.</ResponseField>
-  </Expandable>
-</ResponseField>
+<CardGroup cols={2}>
+  <Card title="Hierarchy" href="/assets/hierarchy">
+    The four-level asset hierarchy in detail, with examples.
+  </Card>
 
-## Navbar
+  <Card title="Accounting Points" href="/assets/accounting-points">
+    The settlement boundary — how APs work and why they matter.
+  </Card>
 
-Configure the top navigation bar links and primary call-to-action.
+  <Card title="Controllable Units" href="/assets/controllable-units">
+    The dispatch-addressable level — how CUs are defined and used.
+  </Card>
 
-```json docs.json
-{
-  "navbar": {
-    "links": [
-      { "label": "Support", "href": "mailto:support@example.com" }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.example.com"
-    }
-  }
-}
-```
+  <Card title="Registration and Qualification" href="/assets/registration-and-qualification">
+    The operational process by which assets become market-eligible.
+  </Card>
+</CardGroup>
 
-<ResponseField name="navbar.links" type="array">
-  Text links displayed in the top navigation bar.
-  <Expandable title="Link">
-    <ResponseField name="label" type="string">Display text for the link.</ResponseField>
-    <ResponseField name="href" type="string">URL the link points to.</ResponseField>
-  </Expandable>
-</ResponseField>
+## Related pages
 
-<ResponseField name="navbar.primary" type="object">
-  The prominent call-to-action in the top-right corner.
-  <Expandable title="Primary">
-    <ResponseField name="type" type='"button" | "github"'>
-      `button` renders a CTA button. `github` renders a star count badge.
-    </ResponseField>
-    <ResponseField name="label" type="string">Button label. Required when type is `button`.</ResponseField>
-    <ResponseField name="href" type="string">URL the button or badge links to.</ResponseField>
-  </Expandable>
-</ResponseField>
-
-## Navigation
-
-Organize your pages into tabs and groups. See the [Navigation](/essentials/navigation) guide for full details.
-
-```json docs.json
-{
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": ["index", "quickstart"]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Blog",
-          "href": "https://example.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  }
-}
-```
-
-## Contextual toolbar
-
-The contextual toolbar floats on every page and gives readers one-click access to AI tools and integrations. See [Contextual toolbar](/agent-ready/contextual) for the full list of options.
-
-```json docs.json
-{
-  "contextual": {
-    "options": ["copy", "view", "claude", "mcp", "cursor", "vscode"]
-  }
-}
-```
-
-## Footer
-
-```json docs.json
-{
-  "footer": {
-    "socials": {
-      "x": "https://x.com/yourhandle",
-      "github": "https://github.com/yourorg",
-      "linkedin": "https://linkedin.com/company/yourco"
-    }
-  }
-}
-```
-
-<ResponseField name="footer.socials" type="object">
-  Social links shown in the footer. Supported keys: `x`, `github`, `linkedin`, `discord`, `slack`, `facebook`, `instagram`, `website`.
-</ResponseField>
+- [Lifecycle](/lifecycle/overview) — what happens to an asset once it's structurally defined.
+- [Dispatch](/mechanics/dispatch) — how the asset hierarchy is used at delivery time.
+- [Verification and Settlement](/mechanics/verification-and-settlement) — how it's used at settlement time.

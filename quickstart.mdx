@@ -1,81 +1,89 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
-icon: 'rocket'
+title: "Actor - Role model"
+description: "The parties that participate in the GB flexibility market, grouped by the kind of relationship each has to the system."
 ---
 
-## Get started in three steps
+The GB flexibility market involves a set of distinct parties, with a plethora of defined roles according to the market and regulatory landscape. 
 
-Get your documentation site running locally and make your first customization.
+A **Role** designates a context-specific, time-bound set of responsibilities with regards to a **Mechanic**.
 
-### Step 1: Set up your local environment
+Understanding who does what is the foundation for understanding how anything else works.
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+## The Actor landscape
 
-### Step 2: Deploy your changes
+```mermaid
+flowchart TB
+    subgraph regulator["Regulator"]
+        Ofgem
+    end
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
+    subgraph operators["System Operators"]
+        NESO
+        DNO["DNO / DSO"]
+    end
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
+    subgraph market["Market Layer"]
+        MF["Market Facilitator<br/>(Elexon)"]
+        Platform["Market Platforms"]
+    end
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
+    subgraph providers["Service Providers"]
+        FSP["Flexibility Service Provider"]
+    end
 
-### Step 3: Go live
+    subgraph asset["Asset Chain"]
+        AO["Asset Owner"]
+        Agent["Agent / Installer"]
+        OEM["OEM / Tech Provider"]
+    end
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+    Ofgem -->|regulates| operators
+    Ofgem -->|regulates| MF
 
-## Next steps
+    NESO -->|publishes needs| Platform
+    DNO -->|publishes needs| Platform
+    Platform -->|matches| FSP
+    FSP -->|contracts with| operators
 
-Now that you have your docs running, explore these key features:
+    AO -->|delegates to| Agent
+    AO -->|owns assets used by| FSP
+    OEM -->|supplies tech to| AO
+    MF -.->|coordinates| operators
+```
+
+## The Role Landscape
+
+## Five groupings
+
+The actors group naturally into five categories based on the kind of work they do:
 
 <CardGroup cols={2}>
+  <Card title="System Operators" href="/actors/system-operators">
+    NESO and DNOs — the parties that need flexibility to keep the system running and procure it from the market.
+  </Card>
 
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
+  <Card title="Service Providers" href="/actors/service-providers">
+    FSPs — the parties that contract to deliver flexibility, owning the commercial relationship with asset owners.
+  </Card>
 
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
+  <Card title="Asset Chain" href="/actors/asset-chain">
+    Asset owners, agents, installers, and OEMs — the parties behind the physical equipment that delivers flexibility.
+  </Card>
 
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card title="Platforms and Facilitator" href="/actors/platforms-and-facilitator">
+    Market platforms and the Market Facilitator — the infrastructure layer that makes transactions possible.
+  </Card>
 </CardGroup>
 
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+The fifth grouping is the [Regulator](/actors/regulator), which sits above all of these and sets the rules within which they operate.
+
+## Why the groupings matter
+
+The grouping isn't merely organisational. Different groups carry different kinds of risk and have different governance:
+
+- **System operators** carry network and consumer risk; they answer to Ofgem.
+- **Service providers** carry commercial and delivery risk; they answer to system operators contractually.
+- **Asset chain actors** carry physical and consent risk; they answer to consumers and asset owners directly.
+- **Platform layer actors** carry coordination and data integrity risk; their authority comes from the market codes they operate under.
+
+The boundaries between these groups are where most of the interesting design questions in the market live.

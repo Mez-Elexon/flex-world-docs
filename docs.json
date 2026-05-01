@@ -11,10 +11,10 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Flexibility World Model",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Background",
             "pages": [
               "index",
               "quickstart",
@@ -29,24 +29,9 @@
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Glossary",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Agent ready",
-            "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "untitled-page"
             ]
           }
         ]
@@ -70,6 +55,9 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Untitled Tab"
       }
     ],
     "global": {
