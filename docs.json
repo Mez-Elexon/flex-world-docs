@@ -12,7 +12,7 @@
     "tabs": [
       {
         "tab": "Flexibility World Model",
-        "groups": [
+        "pages": [
           {
             "group": "Background",
             "pages": [
@@ -63,7 +63,10 @@
               "dispatch",
               "verification-and-settlement"
             ]
-          }
+          },
+          "main-world-model",
+          "intro",
+          "v2"
         ]
       },
       {
