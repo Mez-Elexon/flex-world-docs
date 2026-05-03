@@ -40,9 +40,9 @@ A foundational distinction worth getting right early, because much confusion in 
 
 > **Actor.** An actor is a participant _entity_ external to FMAR that exists independently of the process. Examples: NESO, EDF Energy, UK Power Networks, Companies House. Actors have identity and can play (act) in many Roles at once.
 >
-> **Role.** A role is a _responsibility assumed_ by an actor within a specific process or context. A role is contextual, time-bound, process-specific, assignable, and revocable. An actor can hold multiple roles simultaneously, across assets and sub-markets.
+> **Role.** A role designates the _set of responsibilities assumed_ by an actor within a specific process or context. A role is contextual, time-bound, process-specific, assignable, and revocable. An actor can hold multiple roles simultaneously, across assets and sub-markets.
 
-In practice, this means a single Actor like **UK Power Networks** can simultaneously be the Procuring System Operator for one Asset, the Connecting System Operator for another, and a Market Operator (because UKPN runs its own Market Gateway). Three roles, one actor — and FMAR has to know which role is acting at any moment.
+In practice, this means a single Actor like **National Grid Electricity Distribution** can simultaneously be the Procuring System Operator for one Flexibility Asset, the Connecting System Operator for another, and a Market Operator (because NGED runs its own Market Gateway). Three roles, one actor — and FMAR has to know which role is acting at any moment.
 
 ### Actors and the Roles they hold
 
@@ -99,12 +99,14 @@ flowchart LR
     MarketOp{{"Market Operator"}}:::role
     Up{{"Upstream-to-FMAR<br/>Registration System"}}:::role
     Qual{{"Market Qualification<br/>System"}}:::role
+	Comp{{"Market Bidding <br/>and Competition<br/>System"}}:::role
     Disp{{"Market Dispatch<br/>System"}}:::role
     Ver{{"Market Verification<br/>System"}}:::role
     Settle{{"Market Settlement<br/>System"}}:::role
 
     MarketOp --> Up
     MarketOp --> Qual
+	MarketOp --> Comp
     MarketOp --> Disp
     MarketOp --> Ver
     MarketOp --> Settle
@@ -113,6 +115,10 @@ flowchart LR
 ```
 
 A given Actor may hold several of these phase-roles concurrently (e.g. when a DNO runs a single platform end-to-end internally) or only one (e.g. when an IMP only runs the Qualification system). The roles are individually assignable and revocable, which is what makes "outsource Qualification but keep Dispatch internal" a coherent design choice.
+
+#### The Flexibility Service Provider depends on Qualification arrangements 
+
+Flexibility Service Provider is an umbrella term used to refer to a family of Commercial Qualifications 
 
 ### Why this matters
 

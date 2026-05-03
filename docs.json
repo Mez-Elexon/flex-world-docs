@@ -52,7 +52,7 @@
             "pages": [
               "overview-1",
               "phases",
-              "activity-dependencies"
+              "activities"
             ]
           },
           {
@@ -99,11 +99,6 @@
           "anchor": "Documentation",
           "href": "https://mintlify.com/docs",
           "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
         }
       ]
     }
