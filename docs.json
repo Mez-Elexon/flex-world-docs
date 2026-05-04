@@ -64,9 +64,9 @@
               "verification-and-settlement"
             ]
           },
-          "main-world-model",
           "intro",
-          "v2"
+          "v2",
+          "bsc-map"
         ]
       },
       {
@@ -97,7 +97,7 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://github.com/Mez-Elexon/flex-world-docs",
           "icon": "book-open-cover"
         }
       ]
