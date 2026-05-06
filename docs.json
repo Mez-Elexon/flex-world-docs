@@ -26,47 +26,32 @@
           {
             "group": "Glossary",
             "pages": [
-              "glossary"
+              "glossary",
+              "glossary-1"
             ]
           },
+          "v2",
+          "bsc-map",
           {
-            "group": "Actors and Roles",
+            "group": "Archive (WIP)",
             "pages": [
+              "overview",
+              "assets",
+              "resources",
+              "units",
+              "overview-1",
+              "phases",
+              "activities",
+              "registration-and-qualification",
+              "needs-and-products",
+              "untitled-page",
+              "verification-and-settlement",
+              "dispatch",
               "quickstart",
               "service-providers",
               "system-operators"
             ]
-          },
-          {
-            "group": "Assets",
-            "pages": [
-              "overview",
-              "assets",
-              "registration-and-qualification",
-              "resources",
-              "units"
-            ]
-          },
-          {
-            "group": "Lifecycle",
-            "pages": [
-              "overview-1",
-              "phases",
-              "activities"
-            ]
-          },
-          {
-            "group": "Core Mechanics",
-            "pages": [
-              "untitled-page",
-              "needs-and-products",
-              "dispatch",
-              "verification-and-settlement"
-            ]
-          },
-          "intro",
-          "v2",
-          "bsc-map"
+          }
         ]
       },
       {

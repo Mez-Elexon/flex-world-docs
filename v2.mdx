@@ -46,7 +46,7 @@ In practice, this means a single Actor like **National Grid Electricity Distribu
 
 ### Actors and the Roles they hold
 
-```mermaid
+```mermaid placement="bottom"
 flowchart TB
     subgraph actors["Actors"]
         Ofgem(["Ofgem<br/>(the Authority)"])
@@ -94,7 +94,7 @@ flowchart TB
 
 The Market Operator role isn't a single role — it's a **family of phase-specific roles**. The systems landscape (per the Market Facilitator's working view) recognises five distinct Market Operator sub-roles, one per operational phase:
 
-```mermaid
+```mermaid placement="bottom"
 flowchart LR
     MarketOp{{"Market Operator"}}:::role
     Up{{"Upstream-to-FMAR<br/>Registration System"}}:::role
@@ -134,7 +134,7 @@ Three operational consequences flow from this distinction:
 
 The flex world on one canvas. Read left to right: roles at the edges, the phase spine across the middle, the asset and market sides above and below.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart TB
     %% Roles (top)
     Auth{{"Authority<br/>(Ofgem)"}}:::role
@@ -234,7 +234,7 @@ Each phase below shows the concepts that are _active_ in that phase — what get
 
 The phase before any market participation. The Procuring System Operator and Market Facilitator design what will be procured and how.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart LR
     PSO{{"PSO"}}:::role
     MF{{"Market<br/>Facilitator"}}:::role
@@ -269,7 +269,7 @@ flowchart LR
 
 The phase by which FSPs, Assets, and Units become eligible. The most concept-dense phase in the entire model — and where the FMAR data model has its heaviest footprint, since registration and qualification are FMAR's central operational concern.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart TB
     FSP{{"FSP"}}:::role
     PSO{{"PSO"}}:::role
@@ -392,7 +392,7 @@ flowchart TB
 
 The phase in which Trades happen. The smallest activity set (three activities) but the highest-stakes — this is where commercial commitments are formed.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart LR
     PSO{{"PSO"}}:::role
     FSP{{"FSP"}}:::role
@@ -440,7 +440,7 @@ flowchart LR
 
 The phase in which traded flexibility is delivered. Two-level dispatch (Unit then Asset) propagating to physical Resources.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart LR
     PSO{{"PSO"}}:::role
     FSP{{"FSP"}}:::role
@@ -497,7 +497,7 @@ flowchart LR
 
 The phase in which delivery is assessed against contracted commitments.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart LR
     FSP{{"FSP"}}:::role
     PSO{{"PSO"}}:::role
@@ -550,7 +550,7 @@ flowchart LR
 
 The phase in which money flows. Two activities, but their dependencies on prior phases are deep.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart LR
     PSO{{"PSO"}}:::role
     FSP{{"FSP"}}:::role
@@ -597,7 +597,7 @@ flowchart LR
 
 Some concepts don't sit cleanly in one phase — they span the lifecycle and connect things across it.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart TB
     Asset["Flexibility<br/>Asset [FMAR]"]:::asset
     Unit["Flexibility<br/>Unit [FMAR]"]:::asset
@@ -650,7 +650,7 @@ FMAR doesn't sit in isolation. Two adjacent ecosystems are particularly relevant
 
 DSI is the GB-wide ecosystem for sharing energy system data between authorised parties. It is structured as four layers, each with characteristic Actors and Roles.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart TB
     subgraph DSI["DSI Ecosystem"]
         direction TB
@@ -671,6 +671,7 @@ flowchart TB
             Prod["Producer<br/>(role stance)"]:::dsi
             Cons["Consumer<br/>(role stance)"]:::dsi
             DOwn["Data Owner"]:::dsi
+			DOwn
             DUse["Data User"]:::dsi
         end
 
@@ -701,7 +702,7 @@ flowchart TB
 
 CCS is the industry service that handles consumer consent and the credentials needed to access consumer data. It is structured in six layers.
 
-```mermaid
+```mermaid placement="bottom"
 flowchart TB
     subgraph CCS["CCS Domain"]
         direction TB
@@ -766,7 +767,7 @@ The two ecosystems are largely complementary rather than overlapping:
 
 A simple view of the connections:
 
-```mermaid
+```mermaid placement="bottom"
 flowchart LR
     FMAR["FMAR Domain<br/>(Flexibility Market<br/>Asset Register)"]:::fmar
     DSI["DSI Ecosystem"]:::dsi

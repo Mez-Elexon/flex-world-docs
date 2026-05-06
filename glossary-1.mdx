@@ -10,9 +10,10 @@ This glossary brings together every defined term across the GB flexibility marke
 **Source groups:**
 
 - **FMR-GLO** — Market Facilitator Glossary. Sections 1–3 are legally binding on System Operators via licence conditions.
-- **FMR-E2E** — End-to-End Process Flexibility Market Rule. Defines Market Phases, Market Activities, and local definitions of Asset, Resource, Unit, etc.
+- **Other FMRs** — local and rule-specific terms from the other Flexibility Market Rules: FMR-E2E (End-to-End Process), FMR-SBM (Standard Baselining), FMR-CRM (Carbon Reporting), FMR-PD (Product Definitions), FMR-PR (Primacy Rules), FMR-RSR (Revenue Stacking), FMR-VSM (Verification and Settlement).
 - **FMAR Data Model** — concepts from the FMAR data dictionary that describe what FMAR will hold.
 - **NESO procurement documents** — operational definitions from NESO's Balancing Services Glossary, Response, Balancing Reserve, and DFS Procurement Rules. Where terms recur across multiple documents with identical or near-identical definitions, they are shown once.
+- **FGDs (Governance Documents)** — definitions from the Market Facilitator's Governance Documents: FGD-FMF (Rule Framework), FGD-CMP (Change Management Procedure), FGD-IMP (Implementation Monitoring Procedure).
 - **CCS** — Consent and Credential Service domain.
 - **DSI** — Data Sharing Infrastructure domain.
 - **Industry / operational** — operationally common terms not yet formally defined in any FMR.
@@ -172,7 +173,11 @@ A number of terms recur across multiple sources — sometimes with identical mea
       </Accordion>
     </AccordionGroup>
   </Tab>
-  <Tab title="FMR-E2E">
+  <Tab title="Other FMRs">
+    Local and rule-specific definitions from the Flexibility Market Rules outside of FMR-GLO. Each rule's terms are grouped into its own sub-section.
+
+    ### FMR-E2E (End-to-End Process)
+
     Local definitions from the End-to-End Process Flexibility Market Rule. These describe the structural concepts of the FMR — Market Phases, Market Activities, and the Resource–Asset–Unit hierarchy.
 
     <AccordionGroup>
@@ -206,6 +211,250 @@ A number of terms recur across multiple sources — sometimes with identical mea
 
       <Accordion title="Unit">
         A generalisation of Auction Unit (NESO) which may contain a single Asset or an Asset Group (DNO) to be used for a product procured via / delivered in a Sub-Market. See [Units](/assets/units).
+      </Accordion>
+    </AccordionGroup>
+
+    ### FMR-SBM (Standard Baselining Methodologies)
+
+    Defines the baselining methodologies used to assess flexibility delivery performance across DNO Sub-Markets.
+
+    <AccordionGroup>
+      <Accordion title="Absolute % Error">
+        Over an assessment period, the calculated average absolute error of a Meterable Unit.
+      </Accordion>
+
+      <Accordion title="Alternative Baselining Methodology (ABM)">
+        A non-DBM baselining approach where the applicable DBM is not suitable due to the DER having atypical characteristics or operational behaviours.
+      </Accordion>
+
+      <Accordion title="Asset Capacity">
+        A baselining technique which assumes the participating DER operates at its full rated capacity during the flexibility event, irrespective of actual operational conditions.
+      </Accordion>
+
+      <Accordion title="Confirmed Baselining Methodology (CBM)">
+        The baselining methodology that will be utilised in the assessment of the performance of the DER. This will either be the relevant DBM, or, where approved by the DNO, the ABM.
+      </Accordion>
+
+      <Accordion title="Default Baselining Methodology (DBM)">
+        The baselining methodology that should be applied based on the Location Type, Metering Location, Technology Type and direction of the service (i.e. DTD/GTU or DTU/GTD).
+      </Accordion>
+
+      <Accordion title="Distributed Energy Resource (DER)">
+        Energy resources comprised of generation and/or storage and/or controllable load, which is connected at the low or medium voltage distribution level.
+      </Accordion>
+
+      <Accordion title="Event Days">
+        A day that can be excluded from a Recent History baseline methodology for activities such as delivery of Balancing Services, Virtual Trading, Site Outage, Equipment and/or Site Disconnection occurring on that day.
+
+        _Note: NESO's DFS Procurement Rules also use "Event Day" — defined in Schedule 3 of the DFS Procurement Rules. Closely related concept; the FMR-SBM definition is the substantive one for DNO Sub-Markets._
+      </Accordion>
+
+      <Accordion title="Fixed Reference">
+        A baselining technique which uses a fixed daily profile derived from the observed energy behaviour of a representative group of DERs that represents normal operating behaviour or a DNO's planning scenarios.
+      </Accordion>
+
+      <Accordion title="Location Type">
+        Either a domestic premise or an Industrial & Commercial (I&C) premise.
+      </Accordion>
+
+      <Accordion title="Meterable Unit">
+        An aggregated collection of DERs, or a single DER, that are either all a non-Nomination DBM or all a Nomination DBM.
+      </Accordion>
+
+      <Accordion title="Metering Location">
+        A location for the metering either at the Point of Connection to the Distribution System (i.e. the Boundary Point Metering System) or behind the Boundary Point Metering System located at the asset providing the flexibility service.
+      </Accordion>
+
+      <Accordion title="Net % Error">
+        Over an assessment period, the calculated average net error of a Meterable Unit. A negative net error indicates Nominations are higher than the Meterable Unit's normal behaviour, while a positive error indicates the Nominations are under the Meterable Unit's normal behaviour.
+      </Accordion>
+
+      <Accordion title="Nomination">
+        A baselining technique which uses an estimated/expected set of meter values, provided by the Flexibility Services Provider (FSP), based on the expected or normal operation of the site / DER without any flexibility event, for a future availability window that then becomes a utilisation event.
+      </Accordion>
+
+      <Accordion title="Recent History">
+        A baselining technique which uses a set of recent, eligible days (i.e. excluding Event Days such as a day providing a flexibility service) preceding a utilisation event. This may also include correction factors such as within-day adjustments for weather variables or removal of outlier values.
+      </Accordion>
+
+      <Accordion title="Technology Type">
+        The type of Distributed Energy Resource (DER) which is the asset providing the flexibility service. For example, an EV Charger.
+      </Accordion>
+
+      <Accordion title="Zero">
+        A baselining technique where the baseline energy consumption or generation is set to zero, meaning no energy usage or production is assumed in the absence of the utilisation event.
+      </Accordion>
+    </AccordionGroup>
+
+    ### FMR-CRM (Carbon Reporting Methodology)
+
+    Sets out the aligned approach to reporting on the carbon impact of flexibility services across DNO Sub-Markets.
+
+    <AccordionGroup>
+      <Accordion title="Conversion factors">
+        Used in this rule as a general term to describe factors that are used in the calculations which can include fuel emission factors, grid intensity factors, and plant efficiency assumptions.
+      </Accordion>
+
+      <Accordion title="Grid intensity">
+        The carbon intensity of electricity that is imported from the grid in kgCO2e/kWh taking into account the carbon emissions from grid generation, interconnector imports, and potentially network losses.
+      </Accordion>
+
+      <Accordion title="Payback">
+        Otherwise known as rebound or bounce back, refers to when demand side response load increases after a turn-down event as the site recovers to pre-event conditions. This could also refer to a similar rebound effect following realisation of economic benefits as a result of an energy efficiency saving measure.
+      </Accordion>
+
+      <Accordion title="Reporting Boundary">
+        Defines the scope of the calculation. This can include direct impacts (such as combustion of fuel to generate electricity), consequential impacts (such as the carbon emissions from grid generation to produce and transport electricity imported by a battery), or indirect impacts (such as embedded and end of life emissions attributed to the assets). Narrow or wide boundaries refer to the extent to which the calculation focuses on direct or whole-life emissions respectively.
+      </Accordion>
+    </AccordionGroup>
+
+    ### FMR-PD (Product Definitions)
+
+    Defines the standard flexibility Products procured across DNO Sub-Markets.
+
+    <AccordionGroup>
+      <Accordion title="Continuous">
+        A sustained delivery over the entire utilisation window.
+      </Accordion>
+
+      <Accordion title="Peak Delivery">
+        Targeting the maximum response that can be delivered within the window.
+      </Accordion>
+    </AccordionGroup>
+
+    ### FMR-PR (Primacy Rules)
+
+    Manages conflict between System Operators in the operation of the MW Dispatch Sub-Market.
+
+    <AccordionGroup>
+      <Accordion title="MW Dispatch">
+        The Sub-Market of that name, operated by NESO.
+      </Accordion>
+    </AccordionGroup>
+
+    ### FMR-RSR (Revenue Stacking Requirements)
+
+    Sets common definitions for revenue stacking across all System Operator Sub-Markets.
+
+    <AccordionGroup>
+      <Accordion title="Co-delivery">
+        A single asset receives multiple payments for using the same capacity, at the same time, in the same direction.
+      </Accordion>
+
+      <Accordion title="Jumping">
+        A single asset receives multiple payments for services in different times (adjacent or non-adjacent).
+      </Accordion>
+
+      <Accordion title="Splitting">
+        A single asset receives multiple payments for using different capacity, at the same time.
+      </Accordion>
+    </AccordionGroup>
+
+    ### FMR-VSM (Verification and Settlement)
+
+    Operational terms for the verification of flexibility delivery and the settlement of payments under DNO flexibility contracts.
+
+    <AccordionGroup>
+      <Accordion title="Accepted Availability Window">
+        A Committed Availability Window in respect of a Flexible Unit which is notified by the Company in the form of an award as being required by the Company for the Company's Flexibility Services.
+      </Accordion>
+
+      <Accordion title="Availability Payment">
+        Payment made by the Company to a Flexibility Service Provider for the period the Flexibility Service Provider was awarded an Availability Window.
+      </Accordion>
+
+      <Accordion title="Availability Percentage">
+        The calculated percentage of monthly Availability Payment due, following the application of Utilisation Performance and any applicable availability Grace Factor.
+      </Accordion>
+
+      <Accordion title="Availability Performance">
+        The overall monthly utilisation delivery performance calculated as a percentage for application to all availability payments at the point of invoicing.
+      </Accordion>
+
+      <Accordion title="Availability Price">
+        The contracted fee £/MW/h in respect of availability.
+      </Accordion>
+
+      <Accordion title="Availability Refinement Period">
+        The period defined within the flexibility service parameters where a refinement of the availability window and capacity is agreed.
+      </Accordion>
+
+      <Accordion title="Available MW">
+        The MW value the Company has awarded the FSP within an Accepted Availability Window.
+      </Accordion>
+
+      <Accordion title="Baseline MW">
+        The baseline value of the Flexible Unit at the minute in question. A Demand asset is represented by a negative number with a generation asset a positive number.
+      </Accordion>
+
+      <Accordion title="Contracted Capacity">
+        The target net MW of Demand Response in respect of an awarded Service Window, confirmed to the FSP at time of award or following a refinement window (if applicable for the contracted flexibility service).
+      </Accordion>
+
+      <Accordion title="Delivered MW">
+        The MW value calculated as delivered following the application of the Baseline MW to the Metered MW.
+      </Accordion>
+
+      <Accordion title="Flexible Unit">
+        One or more Energy Resources that are aggregated, regarded as a single entity, and metered on a single metering output and, as such, is providing a flexibility service.
+      </Accordion>
+
+      <Accordion title="Grace Factor">
+        The percentage of under delivery below 100% for which renumeration of 100% will be applied, relevant both to utilisation and availability performance at the Company's discretion.
+      </Accordion>
+
+      <Accordion title="Metered MW">
+        The actual metered MW value of the Flexible Unit at the minute in question. A Demand asset is represented by a negative number with a generation asset a positive number.
+      </Accordion>
+
+      <Accordion title="Metered Time Period">
+        The time period used in the payment calculations, this will either be minute by minute or 30-minute granularity.
+      </Accordion>
+
+      <Accordion title="Peak Reduction Service">
+        A flexibility service where FSPs commit to reduce their highest demand peaks during pre-contracted windows.
+
+        _Note: distinct from the FMR-GLO term "Peak Reduction (PR)" which refers to the Product. "Peak Reduction Service" here is the broader service category as it appears in FMR-VSM verification and settlement context._
+      </Accordion>
+
+      <Accordion title="Performance Multiplier">
+        The factor by which any percentage of under delivery below the grace factor will be multiplied by in order to calculate payable delivery.
+      </Accordion>
+
+      <Accordion title="The Company">
+        The Licensee with whom the FSP is contracted to provide flexibility services.
+
+        _Note: in NESO procurement contexts, this role is held by NESO/NGESO; in DNO Sub-Markets it is the relevant DNO. The term refers to the contracting Licensee in the specific Sub-Market context._
+      </Accordion>
+
+      <Accordion title="Turnup/Turndown Service">
+        Flexibility services that require FSPs to change their energy import or export behaviour during pre-scheduled windows or in response to a Utilisation Instruction.
+      </Accordion>
+
+      <Accordion title="Utilisation Event or Utilisation Period">
+        A utilisation request to deliver flexibility services, inclusive of a specified start and end time.
+      </Accordion>
+
+      <Accordion title="Utilisation Instruction">
+        An instruction by the Company to the FSP to deliver Flexibility Services.
+
+        _Note: closely related to the operational concept "Utilisation Signal" used in industry vocabulary. FMR-VSM uses "Utilisation Instruction" specifically in the verification and settlement context._
+      </Accordion>
+
+      <Accordion title="Utilisation Payment">
+        The amount payable by the Company to the Provider for the utilisation of any Flexibility Service.
+      </Accordion>
+
+      <Accordion title="Utilisation Performance">
+        The calculated performance per utilisation event after any factors have been applied.
+      </Accordion>
+
+      <Accordion title="Utilisation Price">
+        The contracted fee £/MWh in respect of utilisation.
+      </Accordion>
+
+      <Accordion title="Utilised MW">
+        The MW value instructed within a Utilisation Event. Represented by a positive number for a demand reducer / generation increase asset and a negative number for a demand increase / generation reduction asset.
       </Accordion>
     </AccordionGroup>
   </Tab>
@@ -2070,6 +2319,279 @@ A number of terms recur across multiple sources — sometimes with identical mea
       </Accordion>
     </AccordionGroup>
   </Tab>
+  <Tab title="FGDs (Governance Documents)">
+    Definitions from the Market Facilitator's Governance Documents, which set out the processes and procedures the Market Facilitator follows in discharging its responsibilities.
+
+    ### FGD-FMF (Flexibility Market Rule Framework)
+
+    Establishes the framework for the structure and categorisation of Flexibility Market Rules.
+
+    <AccordionGroup>
+      <Accordion title="Sub-Market Alignment Rules">
+        The Flexibility Market Rules which set out specific requirements for alignment.
+      </Accordion>
+
+      <Accordion title="Sub-Market Coordination Rules">
+        The Flexibility Market Rules which set out how Sub-Markets interact.
+      </Accordion>
+    </AccordionGroup>
+
+    ### FGD-CMP (Change Management Procedure)
+
+    The procedure for raising, assessing, deciding, and implementing changes to the Market Facilitator Rules.
+
+    <AccordionGroup>
+      <Accordion title="Alternative Proposer">
+        Has the meaning given to that term in 3.8.3 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Alternative Solution">
+        A solution to a Change Proposal, other than the Proposer's Proposed Solution, that is formally submitted by an Interested Person (the "Alternative Proposer") through the Proposal Form, meets the Validation Criteria, and is assessed and developed in the same manner as the Proposed Solution.
+      </Accordion>
+
+      <Accordion title="Assess Phase">
+        The stage of the Change Management Procedure undertaken by the Market Facilitator in accordance with paragraph 6.1 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Assessment Consultation">
+        The consultation undertaken by the Market Facilitator during the Assessment Phase of a Change Proposal, in accordance with paragraph 6.3 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Assessment Report">
+        The report prepared by the Market Facilitator in accordance with paragraph 6.4.4 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Authority (FGD-CMP)">
+        The Gas and Electricity Markets Authority established by section 1(1) of the Utilities Act 2000.
+
+        _Note: aligned with FMR-GLO definition. See the [Overlapping terms section](#overlapping-terms-across-sources) for cross-source comparison._
+      </Accordion>
+
+      <Accordion title="Baseline Statement">
+        Has the meaning given to that term in paragraph 10.1 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Change Mailing List">
+        The distribution list maintained by the Market Facilitator for the purpose of notifying Interested Persons, System Operators, and the Authority of Change Proposals, Issues, consultations, decisions, and other relevant updates under the Market Facilitator Change Procedure. Any party may request to be added to, or removed from, the Change Mailing List in accordance with the process specified by the Market Facilitator. Each Interested Person shall be responsible for ensuring that its contact details are correctly registered on, and kept up to date in, the Change Mailing List.
+      </Accordion>
+
+      <Accordion title="Change Management Procedure">
+        The procedure established and maintained by the Market Facilitator for raising, assessing, deciding, and implementing changes to the Market Facilitator Rules.
+      </Accordion>
+
+      <Accordion title="Change Objectives">
+        Has the meaning given to that term in paragraph 3.6 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Change Proposal">
+        Has the meaning given to that term in paragraph 3.1 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Change Proposal Terms of Reference">
+        The specific scope, objectives, and issues to be addressed in relation to a Change Proposal, as determined by the Market Facilitator (in consultation with the SAB).
+      </Accordion>
+
+      <Accordion title="Change Register">
+        Has the meaning given to that term in paragraph 3.11 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Decision Phase">
+        The stage of the Change Management Procedure undertaken by the Market Facilitator in accordance with paragraph 7.1 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Decision Report">
+        The report prepared by the Market Facilitator under this Procedure in accordance with 7.1.4.
+      </Accordion>
+
+      <Accordion title="Delivery Plan Opportunity">
+        Any opportunity, idea, or proposal identified by the Market Facilitator, or notified to it by the Authority or stakeholders, which the Market Facilitator shall consider in determining whether that opportunity could assist the Market Facilitator in achieving the performance objectives set by the Authority, and whether it should be included in the Delivery Plan or Delivery Schedule.
+      </Accordion>
+
+      <Accordion title="Derogation">
+        A conditional exemption, granted by the Market Facilitator in accordance with paragraph 8.3 of the Change Management Procedure, from compliance with a specific paragraph, section, or the entirety of a Flexibility Market Rule, to the extent and for the duration specified in the derogation approval.
+      </Accordion>
+
+      <Accordion title="Derogation Application">
+        A written request submitted to the Market Facilitator in accordance with paragraph 8.3.3 of the Change Management Procedure, seeking a Derogation from one or more Rules or requirements of the Market Facilitator Rules, and including the information required under that paragraph.
+      </Accordion>
+
+      <Accordion title="Derogation Register">
+        The register maintained and published by the Market Facilitator in accordance with paragraph 8.3.10 of the Change Management Procedure, recording all active, expired, and revoked derogations, including their scope, duration, conditions, and any associated reporting obligations.
+      </Accordion>
+
+      <Accordion title="Electricity Balancing Guideline (EBGL)">
+        The GB Electricity Balancing Guideline, retaining and assimilating the EU law version of Commission Regulation (EU) 2017/2195.
+      </Accordion>
+
+      <Accordion title="Governance Framework Document">
+        The document of that title issued by the Authority to establish the Market Facilitator Arrangements, as amended from time to time.
+      </Accordion>
+
+      <Accordion title="Housekeeping Change Proposal">
+        Has the meaning given to that term in paragraph 4.5.1 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Housekeeping Criteria">
+        Has the meaning given to that term in paragraph 4.5.3 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Implementation Date (FGD-CMP)">
+        The date specified by the Market Facilitator (following consultation in accordance with the Change Management Procedure, and subject to any direction of the Authority in relation to an appeal) on which an Approved Solution or an Alternative Solution, subject to any Derogation issued, shall take operational effect, and by which any affected System Operators and other relevant parties shall be required to have implemented any necessary system or process changes to comply with the Market Facilitator Rules as created or amended.
+
+        _Note: this is the more elaborated version of the FMR-GLO Implementation Date definition. See the [Overlapping terms section](#overlapping-terms-across-sources)._
+      </Accordion>
+
+      <Accordion title="Implementation Phase">
+        The stage of the Change Management Procedure undertaken by the Market Facilitator in accordance with paragraph 8 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Industry Code (FGD-CMP)">
+        The formalised rules approved by the Authority from time to time that support the electricity industry to supply energy to homes and businesses. Reference to "Industry Code" shall include all codes subject to this definition.
+
+        _Note: aligned with FMR-GLO definition._
+      </Accordion>
+
+      <Accordion title="Initial Assessment">
+        The stage of the Change Management Procedure undertaken by the Market Facilitator following the formal raising of a Change Proposal in accordance with paragraph 5.2.3 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Initial Written Assessment Report">
+        Has the meaning given to that term in paragraph 5.3.2 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Interested Person">
+        Any individual or organisation that can demonstrate a legitimate interest in the Market Facilitator Arrangements, including their design, delivery, governance, operation, or impacts. For the avoidance of doubt, this includes the Market Facilitator, the Authority, the National Energy System Operator (NESO), Distribution Network Operators (DNOs), and Flexibility Service Providers.
+      </Accordion>
+
+      <Accordion title="Issue">
+        Has the meaning given to that term in paragraph 3.2 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Issue Group">
+        A group established by the Market Facilitator to consider and assess an Issue, explore issues, potential solutions or next steps, and make recommendations to the Market Facilitator on whether a Change Proposal should be raised or other action taken.
+      </Accordion>
+
+      <Accordion title="Issue Report">
+        The report prepared by the Market Facilitator in accordance with paragraph 9.1.6 of the Change Management Procedure, setting out the findings, discussions, and recommendations arising from the consideration of an Issue, including whether a Change Proposal should be raised or other actions taken.
+      </Accordion>
+
+      <Accordion title="Issue Terms of Reference">
+        The terms of reference established and maintained by the Market Facilitator which set out how Issue Groups shall conduct their business and the matters they must support the resolution of.
+      </Accordion>
+
+      <Accordion title="Market Facilitator Governance Documents">
+        The suite of governance documents established and maintained by the Market Facilitator which set out the processes and procedures it shall follow in discharging its responsibilities.
+      </Accordion>
+
+      <Accordion title="Prioritisation Criteria">
+        Has the meaning given to that term in paragraph 3.4 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Progression Plan">
+        The plan determined by the Market Facilitator, in consultation with the SAB, setting out the steps, activities, and indicative timetable for the assessment, development, and determination of a Change Proposal under its Progression Route.
+      </Accordion>
+
+      <Accordion title="Progression Route">
+        The pathway determined by the Market Facilitator for the assessment and development of a Change Proposal, in accordance with paragraph 4.1 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Proposal Form">
+        The standard form, as specified by the Market Facilitator from time to time, which must be completed and submitted in order to raise a Change Proposal in accordance with paragraph 5.2 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Proposed Solution">
+        The solution to a Change Proposal formally submitted by the Proposer through the Proposal Form, which meets the Validation Criteria and is assessed and developed under this Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Proposer">
+        The person or entity that formally submits a Proposed Solution by completing and submitting a valid Proposal Form in accordance with paragraph 5.1 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Publish Date (FGD-CMP)">
+        The date specified by the Market Facilitator on which an approved Proposed Solution or Alternative Solution to the Market Facilitator Rules shall be published and take legal effect.
+
+        _Note: aligned with FMR-GLO definition. The FGD-CMP version is the elaborated source._
+      </Accordion>
+
+      <Accordion title="Raise Phase">
+        The stage of the Change Management Procedure undertaken by the Market Facilitator in accordance with paragraph 5.2 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Technical Secretary">
+        The person appointed by the Market Facilitator to provide administrative and procedural support to a Workgroup or the SAB, including (without limitation) arranging meetings, preparing and circulating papers, recording minutes, maintaining records, and assisting in the coordination of activities as required by the relevant Workgroup Chair or the SAB Chair, as applicable.
+      </Accordion>
+
+      <Accordion title="Urgency Criteria">
+        The criteria published by the Authority from time to time, titled "Ofgem Guidance on Code Modification Urgency Criteria", which the Market Facilitator will use for determining whether a Change Proposal should be treated as urgent.
+      </Accordion>
+
+      <Accordion title="Validation Criteria">
+        Has the meaning given to that term in paragraph 3.5 of the Change Management Procedure.
+      </Accordion>
+
+      <Accordion title="Ways of Working Document">
+        The document established and maintained jointly by the Market Facilitator and the National Energy System Operator in accordance with the Governance Framework Document. It sets out the detailed working arrangements, processes, and protocols governing coordination between the Market Facilitator and NESO in the development, assessment, and implementation of Market Facilitator Change Proposals and any related changes raised by the National Energy System Operator.
+      </Accordion>
+
+      <Accordion title="Workgroup">
+        A group established by the Market Facilitator under this Change Management Procedure to assess and develop a Change Proposal and any Alternative Solutions, in accordance with the applicable Change Proposal Terms of Reference and Workgroup Terms of Reference. A Workgroup may include Workgroup Members drawn from Interested Persons, System Operators, the SAB, or other stakeholders with relevant expertise or experience.
+      </Accordion>
+
+      <Accordion title="Workgroup Chair">
+        The person appointed by the Market Facilitator to chair a Workgroup or an Issue Group, responsible for managing its proceedings in accordance with the relevant Terms of Reference, ensuring fair and effective discussion.
+      </Accordion>
+
+      <Accordion title="Workgroup Member">
+        Any person appointed by the Market Facilitator to participate in a Workgroup or an Issue Group established under this Change Management Procedure, including (without limitation) representatives of Interested Persons, System Operators, the SAB, or other stakeholders with relevant expertise or experience, for the purpose of assessing and developing one or more Change Proposals or Issues.
+      </Accordion>
+
+      <Accordion title="Workgroup Terms of Reference">
+        The terms of reference established and maintained by the Market Facilitator which set out how Workgroups shall conduct their business and the matters they must support the resolution of, as detailed in the Change Proposal Terms of Reference.
+      </Accordion>
+    </AccordionGroup>
+
+    ### FGD-IMP (Implementation Monitoring Procedure)
+
+    The procedure for monitoring System Operator implementation of, and compliance with, the Flexibility Market Rules.
+
+    <AccordionGroup>
+      <Accordion title="Effectiveness Monitoring">
+        The process by which the Market Facilitator assesses whether each Flexibility Market Rule is achieving its intended outcomes, using the metrics, success criteria, and other measures defined within that Rule, together with Market Information collected in accordance with paragraph 3.8 in the Implementation Monitoring Procedure.
+      </Accordion>
+
+      <Accordion title="Implementation Tracker">
+        A public dashboard showing the implementation status of each System Operator in respect of the Flexibility Market Rules, including any associated resolution progress recorded under FGD-IMP Implementation Monitoring Procedure.
+      </Accordion>
+
+      <Accordion title="Implementation Tracking">
+        The process by which the Market Facilitator verifies whether a System Operator is on track to implement, or has implemented the Flexibility Market Rules in accordance with the timelines and requirements specified in those Flexibility Market Rules, and identifies any Flexibility Market Rules at risk of non-delivery by each System Operator.
+      </Accordion>
+
+      <Accordion title="Resolution Meeting">
+        A meeting held between the Market Facilitator and the relevant System Operator in accordance with paragraph 3.3 in the Implementation Monitoring Procedure, to discuss a new risk or issue or an existing risk or issue and is used to enable the System Operator to develop or update its Resolution Plan, where needed.
+      </Accordion>
+
+      <Accordion title="Resolution Plan">
+        The activities, key milestones, timescales, and information proposed and maintained by a System Operator to address an identified issue and to return to timely implementation of, compliance with, or the provision of required information under, the relevant Flexibility Market Rule or any Additional Market Facilitator Information Request made in accordance with the Implementation Monitoring Procedure.
+      </Accordion>
+
+      <Accordion title="Resolution Tracking">
+        The process by which the Market Facilitator monitors and records the progress made by a System Operator against the actions, key milestones, timescales, and information set out in its Resolution Plan, and updates the Implementation Tracker to reflect the status of those activities in accordance with paragraph 3.4 in the Implementation Monitoring Procedure.
+      </Accordion>
+
+      <Accordion title="Tier 1 Escalation">
+        The stage of escalation under the Implementation Monitoring Procedure where the Market Facilitator has identified that a System Operator is off track or at risk of underperforming against the requirements of a Flexibility Market Rule. With the support of the Market Facilitator, the System Operator will design and deploy a Resolution Plan. This Plan is formally tracked through the Resolution Tracking process.
+      </Accordion>
+
+      <Accordion title="Tier 2 Escalation">
+        The stage of escalation under the Implementation Monitoring Procedure where the Market Facilitator determines that a System Operator has not submitted an acceptable Resolution Plan, or that an existing Resolution Plan is not being delivered or is no longer viable, and the matter is referred to the Stakeholder Advisory Board for advice and scrutiny.
+      </Accordion>
+
+      <Accordion title="Tier 3 Escalation">
+        The stage of escalation under the Implementation Monitoring Procedure where a System Operator has not submitted an acceptable Resolution Plan after Tier 1 or Tier 2, a Resolution Plan is not being delivered, or the System Operator is not cooperating with the Market Facilitator or the Stakeholder Advisory Board in progressing the issue, and the matter is notified to the Authority on a non-public basis.
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
 </Tabs>
 
 ## Overlapping terms across sources
@@ -2089,6 +2611,9 @@ These terms are defined in multiple sources but with the same essential meaning.
 | **Grid Code** | NESO procurement; DESNZ SSES | NESO defines via the Transmission Licence; DESNZ SSES describes it as the technical rules for connecting to NETS. Same Code. |
 | **National Energy System Operator (NESO)** | FMR-GLO; DESNZ SSES; NESO procurement (as NGESO — same legal entity, pre-Oct-2024 name) | All three refer to NESO Limited (company number 11014226). |
 | **Working Day** | FMR-GLO ("banks open in London"); NESO procurement BSG ("Operational Day Mon–Sat 05:00, excluding bank holidays") | These two definitions differ. The FMR-GLO version is calendar-based; NESO BSG is operational-day-based. **In contracts, check which definition the contract incorporates.** |
+| **Implementation Date** | FMR-GLO; FGD-CMP | The FGD-CMP definition is the elaborated source — referencing consultation in the Change Management Procedure, Authority appeal direction, and any Derogation issued. The FMR-GLO version is the summary. |
+| **Industry Code** | FMR-GLO; FGD-CMP | Same definition expressed slightly differently. FGD-CMP adds: "Reference to 'Industry Code' shall include all codes subject to this definition". |
+| **Publish Date** | FMR-GLO; FGD-CMP | FGD-CMP is the elaborated source. Both refer to the date an Approved Solution takes legal effect. |
 
 ### Contextual variants — same concept, scope differs
 
@@ -2115,6 +2640,11 @@ These terms aren't quite the same concept but get conflated in conversation. Wor
 | **Interoperability (DESNZ SSES) vs interoperability (PAS 1878)** | DESNZ SSES defines it specifically as "the ability of the ESA to change its FSP without the need for a visit to the premises and whilst maintaining the ability to provide CLF". PAS 1878 defines it as "the ability of an ESA to work seamlessly across any appropriate DSR service operated by any authorized system player, including allowing a consumer to switch an ESA to a different DSRSP at any time and maintain DSR functionality". **Both about FSP/DSRSP switching; PAS is broader (DSR services beyond CLF).** |
 | **Customer Energy Manager (CEM, PAS 1878) vs Homes Energy Management System (HEMS, DESNZ SSES)** | PAS CEM: logical entity managing one or more ESAs to provide DSR services, can be in-premises or cloud. DESNZ HEMS: device or system controlling/configuring energy usage of one or more ESAs to optimise across all devices in a consumer premises. **PAS CEM is the standardised technical concept; HEMS is a regulatory-context-specific term that overlaps heavily with CEM.** |
 | **Smart Meter (PAS 1878) vs Boundary Meter (NESO DFS)** | PAS smart meter: device measuring electrical energy transfer per the prevailing national smart meter spec (SMETS2). NESO Boundary Meter: a Meter comprised in a Boundary Point Metering System. **Both can be the same physical device in many cases**, but the framings serve different purposes — settlement metering vs smart metering specification compliance. |
+| **Peak Reduction (FMR-GLO Product) vs Peak Reduction Service (FMR-VSM)** | FMR-GLO defines **Peak Reduction (PR)** as a specific named Product (procured under FMR-PD). FMR-VSM defines **Peak Reduction Service** more broadly as a service category where FSPs commit to reduce highest demand peaks during pre-contracted windows. **The Product is a specific instance; the Service is the broader category.** |
+| **Utilisation Instruction (FMR-VSM) vs Utilisation Signal (industry)** | FMR-VSM's **Utilisation Instruction** is the formal contractual term — "an instruction by the Company to the FSP to deliver Flexibility Services". The operational shorthand **Utilisation Signal** appears in industry usage to mean the same thing — the actual signal that initiates delivery. Use Utilisation Instruction in formal contexts. |
+| **Distributed Energy Resource (DER, FMR-SBM) vs Resource (FMR-E2E) vs Eligible Asset (NESO Service Terms)** | FMR-E2E **Resource** is the broadest umbrella — physical Plant/Apparatus or devices that generate, consume, or store electricity. FMR-SBM **DER** is narrower: specifically generation/storage/controllable load connected at the low or medium voltage distribution level. NESO **Eligible Asset** is narrower again: any Plant and Apparatus pre-qualified to provide a specific NESO Auction Product. **Three concentric scopes — DER is the FMR-SBM term used for DNO Sub-Markets; Eligible Asset is the NESO-specific term.** |
+| **Event Days (FMR-SBM) vs Event Day (NESO DFS)** | FMR-SBM defines **Event Days** as days excluded from a Recent History baseline methodology. NESO DFS Procurement Rules has an **Event Day** entry pointing to Schedule 3 of the DFS Procurement Rules. **Both are about days excluded from baseline calculation; FMR-SBM is the substantive cross-Sub-Market definition.** |
+| Flexible Unit (FMR-VSM) vs Meterable Unit (FMR-SBM) vs Unit (FMR-E2E) |  |
 
 ### Reading guide
 

@@ -36,15 +36,15 @@ NESO operates several distinct sets of systems depending on the Sub-Market type:
 | **National (DFS)** | Single Markets Platform | Single Markets Platform | OBP | DFS Platform | DFS Platform |
 | **National (Balancing Mechanism)** | Participant Management Platform | EDL for BM (possibly via Quorum) | EDT for BM (possibly via Quorum) | BM systems | BSC Systems |
 
-Additional NESO platform context:
+Additional NESO platform context MB notes:
 
-- **BM forecasting systems and Hitachi Energy ADMS** support grid analysis.
-- **SCADA system** for operational visibility.
-- The **future direction** noted in the working view is towards an MF dispatch API for non-BM Units (nBMs).
+- BM forecasting systems and Hitachi Energy ADMS support grid analysis.
+- SCADA system for operational visibility.
+- The future direction noted in the working view is towards an MF dispatch API for non-BM Units (nBMs).
 
 ### DNO platforms
 
-Each DNO uses a distinct set of platforms. The current picture:
+Each DNO uses a distinct set of platforms. The current picture (April 2026):
 
 | DNO | Qualification platform | Competition platform | Dispatch | Verification | Grid system |
 | --- | --- | --- | --- | --- | --- |
@@ -68,6 +68,7 @@ Settlement across DNOs typically routes through the platform's own settlement fu
 
 The systems interface working view also identifies the interfaces FSPs must work through. These cluster around several functions:
 
+- **Register Asset and Service Provider interface.**
 - **Register Baseline Method interface.**
 - **Create Unit interface.**
 - **Baseline data interface.**
