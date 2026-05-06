@@ -26,7 +26,6 @@
           {
             "group": "Glossary",
             "pages": [
-              "glossary",
               "glossary-1"
             ]
           },
@@ -55,7 +54,7 @@
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "API reference (demo)",
         "groups": [
           {
             "group": "API documentation",
@@ -73,9 +72,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "Untitled Tab"
       }
     ],
     "global": {
