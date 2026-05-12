@@ -27,6 +27,7 @@
               "glossary-1"
             ]
           },
+          "live-fmar-data-model",
           "v2",
           "bsc-map",
           {
@@ -50,8 +51,7 @@
               "service-providers",
               "system-operators"
             ]
-          },
-          "live-fmar-data-model"
+          }
         ]
       },
       {
