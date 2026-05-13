@@ -1,9 +1,10 @@
 ---
 title: "FMAR Data Model (Demo)"
-description: "The current working entity-relationship model for the Flexibility Market Asset Register. Defines the entities, attributes, and relationships FMAR will hold as the GB flexibility market's authoritative system of record."
+description: "The current working entity-relationship model for the Flexibility Market Asset Register. Defines the entities, attributes, and relationships FMAR will hold as the GB flexibility market's authoritative system of record. As you wish."
+mode: "wide"
 ---
 
-This page sets out the **working FMAR data model** — the entity-relationship view of what FMAR will hold as the authoritative system of record for GB flexibility market participants, assets, units, and qualifications.
+This page sets out the **working FMAR data model** \[as per Working Group 4/5/6\]— the entity-relationship view of what FMAR will hold as the authoritative system of record for GB flexibility market participants, assets, units, and qualifications.
 
 The model is **under active development**. Entity names, attributes, and cardinalities are expected to evolve as design work proceeds and as the wider Flexibility Market Rules mature around it. This page is intended as a current snapshot and a reference for shared understanding across the programme. The FMAR data model is the most concrete expression of "Flex World" — the semantic universe described at higher level on the [Master Conceptual Map](/master-conceptual-map).
 
@@ -13,7 +14,7 @@ Three audiences and three things to look for:
 
 - **If you're working on a Workgroup paper or rule change:** entity names and definitions here are the canonical FMAR vocabulary. The wider Flex World — FMR-GLO terms, NESO procurement terms, the Standard Agreement — has its own vocabulary; the [Glossary](/reference/glossary) tracks how these relate.
 - **If you're designing or integrating with FMAR:** the attribute lists and cardinalities here are what the system will hold. Treat them as design-stage, not committed.
-- **If you're an observer of Flex World:** the cross-references at the end of each section show how FMAR concepts connect to FMRs, NESO procurement vocabulary, BSC settlement, and the adjacent CCS and DSI ecosystems.
+- **If you're an observer of Flex World:** the cross-references at the end of eachoueshold section show how FMAR concepts connect to FMRs, NESO procurement vocabulary, BSC settlement, and the adjacent CCS and DSI ecosystems.
 
 ## The model
 
@@ -22,6 +23,8 @@ erDiagram
 
     FLEXIBILITY_ORGANISATION {
         string companyName
+		string companyName
+
         string companyNumber
         string registeredAddressLine1
         string registeredAddressLine2
