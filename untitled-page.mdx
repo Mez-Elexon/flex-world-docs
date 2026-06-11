@@ -1,105 +1,98 @@
 ---
-title: "Glossary"
+title: "What is a Sub-Market"
 description: "Canonical terms used throughout this site, with aliases noted where multiple terms are in common use for the same concept."
 ---
 
-## Domain entities
+The **Sub-Market** is the unit of organisation in the Flexibility Market. The Market Facilitator Glossary (FMR-GLO) defines it as:
 
-**Service Point Group (SPG).** A grouping of Accounting Points used for portfolio-level participation and reporting. See [Asset Hierarchy](/assets/hierarchy).
+> _A specific segment of the overall Flexibility Market, distinguished by a specific System Operator, procuring a specific product within a specific time period. A Sub-market may be built of multiple distinct geographic zones, operating in different directions, clearing different volumes at different prices._
 
-**Accounting Point (AP).** A defined point in the network at which energy is metered for settlement. The settlement boundary. Identified in GB by MPAN (or MSID in some contexts). See [Accounting Points](/assets/accounting-points).
+Three things in this definition matter:
 
-**Asset.** A physical or aggregated entity registered by an FSP for participation in flexibility markets. Sits behind one or more APs and contains one or more Controllable Units.
+1. **A Sub-Market belongs to one System Operator.** Either NESO or a specific DNO. Cross-operator Sub-Markets aren't a thing.
+2. **A Sub-Market procures one Product.** The Product is named in the Sub-Market's identity. This is a deliberate one-Product-per-Sub-Market framing.
+3. **A Sub-Market is bounded in time.** The "specific time period" is part of what makes one Sub-Market different from another — typically reflecting the procurement horizon (year-ahead, day-ahead, etc.).
 
-**Controllable Unit (CU).** The dispatch-addressable level of the asset hierarchy — what receives instructions and reports performance. _Alias: Meterable Unit (used in some Elexon documentation)._ See [Controllable Units](/assets/controllable-units).
+Variation _within_ a Sub-Market is captured by zones, directions, volumes, and prices — not by changing which Product is being procured.
 
-**Technical Resource (TR).** The lowest-level technical component within a CU.
+## Sub-Markets, Products, and System Needs
 
-**Site.** A physical location with one or more APs and Assets.
+How these concepts connect, in the way the FMRs and the Market Facilitator currently use them:
 
-## Actors
+```mermaid placement="bottom"
+flowchart TB
+    Need[System Need] -->|reflected by 1 or many| Product
+    Product -->|is procured across<br/>1 or many Sub-Markets| SM[Sub-Market]
+    SO[System Operator] -->|is responsible for| Need
+    SO -->|procures via| SM
+    FSP[Flexibility Service Provider] -->|provides flexibility<br/>through Units in| SM
 
-**Flexibility Service Provider (FSP).** The party contracting with a system operator to deliver flexibility. Owns the relationship with one or more Asset Owners. See [Service Providers](/actors/service-providers).
+    SM -->|specific to a| CMZ[Constraint Managed Zone]
+    SM -->|has a| ACL[Auction Contract Length]
+    SM -->|involves a| Comp[Competition]
 
-**Distribution Network Operator (DNO).** The licensed operator of a regional distribution network. See [System Operators](/actors/system-operators).
+    Comp -->|imposes time-limited| BR[Buy Requirements]
+    Comp -->|imposes time-limited| SR[Sell Requirements]
+    Bid -->|is a| SR
+    BR & SR --> Trade
+    Trade --> Util[Utilisation Signal]
+    Util -->|has| UIT[Utilisation Instruction Timing]
+```
 
-**Distribution System Operator (DSO).** The active-network role increasingly performed by DNOs, including local flexibility procurement.
+_Adapted from the Market Facilitator's working concept map of FMR terminology._
 
-**National Energy System Operator (NESO).** The operator of the GB transmission system. See [System Operators](/actors/system-operators).
+The shape that recurs in this map: each Sub-Market is anchored by a System Operator and a Product, situated in a time-bounded Competition that produces Trades, which then drive Utilisation.
 
-**Asset Owner.** The legal owner of a flexible asset.
+## On the assumption that one Product = one Sub-Market
 
-**Agent / Installer.** A third party empowered by an Asset Owner to register, update, or operate the asset on the Owner's behalf.
+The current published Sub-Market list (see [Sub-Market Catalogue](/reference/sub-market-catalogue)) treats Products and Sub-Markets as essentially 1:1. There are dozens of Sub-Markets because there are many combinations of (System Operator × Product × time period), and historically each combination has been treated as its own Sub-Market.
 
-**Original Equipment Manufacturer (OEM).** Manufacturers of the physical equipment that delivers flexibility (battery makers, EV charger vendors, heat pump producers).
+This is a working assumption, not a structural one. The Market Facilitator's stated direction is to rationalise and align Sub-Markets where appropriate — which may mean fewer, more standardised Sub-Markets in future, even where multiple Products are in play. The 1:1 mapping you see today is a snapshot.
 
-**Market Platform.** A digital platform on which flexibility products are bought and sold. Examples include Piclo, NodeES, and Flexible Power.
+## Sub-Products
 
-**Market Facilitator (MF).** Elexon, designated by Ofgem to provide neutral coordinating infrastructure. See [Platforms and Facilitator](/actors/platforms-and-facilitator).
+A **Sub-Product** is a directional or symmetric variant of a Product within the same Sub-Market. Examples in current operation:
 
-**Ofgem.** The Office of Gas and Electricity Markets — GB's energy regulator. See [Regulator](/actors/regulator).
+| Sub-Market | Product | Sub-Products |
+| --- | --- | --- |
+| Dynamic Containment (NESO) | Dynamic Containment | High, Low |
+| Dynamic Moderation (NESO) | Dynamic Moderation | High, Low |
+| Dynamic Regulation (NESO) | Dynamic Regulation | High, Low |
+| Quick Reserve (NESO) | Quick Reserve | Positive, Negative |
+| Slow Reserve (NESO) | Slow Reserve | Positive, Negative |
+| Balancing Reserve (NESO) | Balancing Reserve | Positive, Negative |
 
-**DESNZ.** Department for Energy Security and Net Zero — UK government department setting energy policy.
+The Sub-Product concept exists because directional symmetry (turn-up vs. turn-down) is a frequent configuration: the same Product, the same Sub-Market, but procured in two directions concurrently. Treating each direction as a separate Sub-Market would be heavy-handed; treating them as one Product blurs an important distinction.
 
-## Market mechanics
+Sub-Product is not currently defined in FMR-GLO. It's used operationally and reflected in the Sub-Markets in scope spreadsheet maintained by the Market Facilitator.
 
-**Sub-Market.** A specific procurement vehicle parameterised by product, contract duration, geography, and other dimensions. See [Sub-Markets](/mechanics/sub-markets).
+## The Sub-Market and what it parameterises
 
-**Product.** A defined flexibility service that a system operator procures. Examples: Scheduled Utilisation, Dynamic Containment.
+A Sub-Market is defined by a small set of parameters. The Flexibility Market Catalogue (FMC) framework identifies these:
 
-**System Need.** A network or system requirement that a flexibility product addresses.
+| Parameter | Examples |
+| --- | --- |
+| **System Operator** | NESO; or a specific DNO (NGED, NPg, SPEN, SPENW, SSEN, UKPN) |
+| **Product** | Operational Utilisation, Peak Reduction, Scheduled Availability \+ Operational Utilisation, Scheduled Utilisation, Variable Availability \+ Operational Utilisation; or NESO ancillary service products |
+| **Time period / Auction Contract Length** | STOR Window; 30 minutes; 4 hours; ≤ a Day; Day \< x ≤ Week; Week \< x ≤ Month; Month \< x ≤ Year; Greater Than a Year; Unspecified |
+| **License Area / geographic scope** | All SO-associated areas; specific licence areas (NPgN, NPgY, SP Distribution, SP Manweb, SP ENW, SSEH, SSES, LPN, SPN, EPN, WMID, EMID, SWALES, SWEST) |
+| **Sub-Products** | Where applicable: High/Low, Positive/Negative |
 
-**Constraint Management Zone (CMZ).** A geographic area within which flexibility is required to manage a network constraint.
+A Sub-Market submission to the FMC also identifies which of the standard Market Activities apply to that Sub-Market (see [Activity Dependencies](/lifecycle/activity-dependencies)), and the specific time constraints and dependencies between them.
 
-**Bid.** An offer submitted by an FSP in response to a Buy Requirement.
+## How Sub-Markets are governed
 
-**Trade.** A matched buy and sell — the outcome of market clearing.
+Sub-Market governance is layered:
 
-**Baseline Method.** The agreed method for calculating counterfactual consumption against which delivered flexibility is measured.
+- **Legal foundation.** FMR-GLO defines what a Sub-Market is. The Pre-Qualification Criteria FMR (FMR-PQC) defines what's required to participate. The End-to-End Process FMR defines the standard activities. The Product Definitions FMR defines the Products that Sub-Markets procure.
+- **Implementation Monitoring.** The Market Facilitator maintains the Flexibility Market Catalogue, into which System Operators submit their Sub-Markets and against which compliance is monitored.
+- **Operational rules.** Each System Operator maintains its own Service Terms or operational rules layered on top of the FMRs.
 
-**Dispatch Signal / Utilisation Signal.** The instruction to a CU to deliver flexibility.
-
-**Cease Signal.** The instruction to a CU to return to baseline.
-
-## Lifecycle phases
-
-**Exploration.** Pre-market activity to identify needs and define products. See [Phases](/lifecycle/phases).
-
-**Qualification.** Registration and pre-qualification of FSPs, Assets, and CUs.
-
-**Competition.** Buy/sell signalling and market clearing.
-
-**Scheduling and Dispatch.** Operational delivery.
-
-**Verification.** Performance assessment.
-
-**Settlement.** Invoicing and payment.
-
-## Standards and infrastructure
-
-**FMAR (Flexibility Market Asset Registration).** The programme establishing common asset registration infrastructure across GB.
-
-**Flexibility Market Catalogue (FMC).** The submission template through which system operators register their sub-markets with the Market Facilitator. See [Standards](/reference/standards).
-
-**Data Sharing Infrastructure (DSI).** National data exchange infrastructure that flexibility market APIs increasingly align to.
-
-**IES5.** Information Exchange Standard, version 5.
-
-**CIM (Common Information Model).** International standard for power system information exchange (IEC 61970, IEC 61968).
-
-**OpenADR.** Open Automated Demand Response standard.
-
-**FIS / EuroFlex.** Norwegian Flexibility Information System — international reference model defining the four-level asset hierarchy (SPG → AP → CU → TR).
-
-## Identifiers
-
-**MPAN (Meter Point Administration Number).** The standard identifier for an electricity supply point in GB.
-
-**MSID (Metering System Identifier).** Identifier used in the Balancing and Settlement Code context.
-
-**EAN.** European Article Number — used in some EU flexibility contexts; not the primary GB identifier.
+Where these layers conflict, the Flexibility Market Rules win — the Market Facilitator Glossary terms are legally binding via licence conditions.
 
 ## Related pages
 
-- [Standards](/reference/standards) — fuller treatment of the technical standards.
-- [Sources](/reference/sources) — links to the authoritative publications behind these definitions.
+- [Sub-Market Catalogue](/reference/sub-market-catalogue) — the full current list of Sub-Markets.
+- [Needs and Products](/mechanics/needs-and-products) — the upstream concepts.
+- [Competition and Clearing](/mechanics/competition-and-clearing) — how Sub-Markets actually clear.
+- [Activity Dependencies](/lifecycle/activity-dependencies) — the standard activities a Sub-Market uses.
