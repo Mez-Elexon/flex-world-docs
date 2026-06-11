@@ -17,8 +17,7 @@
             "group": "Background",
             "pages": [
               "index",
-              "sub-market-overview",
-              "systems-landscape"
+              "sub-market-overview"
             ]
           },
           {
@@ -27,29 +26,11 @@
               "glossary-1"
             ]
           },
-          "live-fmar-data-model",
-          "v2",
-          "bsc-map",
           {
             "group": "Archive (WIP)",
             "pages": [
-              "sources",
-              "reference-models",
-              "overview",
-              "assets",
-              "resources",
-              "units",
-              "overview-1",
-              "phases",
-              "activities",
-              "registration-and-qualification",
-              "needs-and-products",
               "untitled-page",
-              "verification-and-settlement",
-              "dispatch",
-              "quickstart",
-              "service-providers",
-              "system-operators"
+              "quickstart"
             ]
           }
         ]
