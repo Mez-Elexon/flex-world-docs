@@ -97,5 +97,11 @@
       "linkedin": "https://linkedin.com/company/mintlify"
     }
   },
+  {
+  "styling": {
+    "latex": true
+  }
+},
   "description": "An experiment in"
+  
 }
